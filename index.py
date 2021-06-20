@@ -169,13 +169,8 @@ def home():
         print(datastr)
 
 
-        with open('C:downloads/resultadobusqueda.csv', 'w', newline='') as file:
-            #Usamos la función se utiliza para crear un objeto de tipo writer y donde pasamo un parámetro adicional que es el delimiter=';' donde queremos usar el ; como delimitador en el archivo Infobox.csv
-            writer = csv.writer(file, delimiter=';')
-            #La función writer.writerow() se utiliza para escribir en el archivo CSV.
-            writer.writerow(header)
-            writer.writerow(data)   
-        return Response(file,mimetype="text/csv",headers={"Content-disposition":"attachment; filename=resultadobusqueda.csv"})
+        csv = headerstr+'\n'+datastr+'\n'
+        return Response(csv, mimetype="text/csv", headers={"Content-disposition":"attachment; filename=resultadobusqueda.csv"})
     else:
         return render_template("formulario.html")
 
