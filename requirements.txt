@@ -1,0 +1,7 @@
+  
+# mandatory dependencies, others are optional
+requests>=2.20.1, < 2.26.0; python_version < '3.6'
+requests>=2.20.1 ; python_version >= '3.6'
+setuptools>=20.2, !=50.0.0, <50.2.0 ; python_version < '3.6'
+setuptools>=20.2 ; python_version >= '3.6'
+flask>=2.0.1 ; python_version >= '3.6'
