@@ -42,7 +42,7 @@ keyAllArray = []
 #Arreglo donde guardara las fechas de actualizaciones
 updates = []
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="template")
 
 
 @app.route("/", methods = ["POST", "GET"])
