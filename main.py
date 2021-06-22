@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, Response
 from urllib.request import urlopen, Request
-from decouple import config as config_decouple
 import requests
 import json
 import csv
@@ -13,12 +12,6 @@ def create_app(enviroment):
     app.config.from_object(enviroment)
 
     return app
-
-enviroment = config['development']
-if config_decouple('PRODUCTION', default=False):
-    enviroment = config['production']
-
-app = create_app(enviroment)
 
 #Funcion que convierte los datos en cadena de textos separadas en espacios
 # Function to convert  
@@ -55,7 +48,7 @@ keyAllArray = []
 #Arreglo donde guardara las fechas de actualizaciones
 updates = []
 
-app = Flask(__name__, template_folder="template")
+app = Flask(__name__, template_folder="templates")
 
 
 @app.route("/", methods = ["POST", "GET"])
