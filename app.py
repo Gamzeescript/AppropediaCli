@@ -57,7 +57,8 @@ def home():
         param = request.form ["param"]
         escape = " "
         articulo = param.replace(escape, '%20')
-        url = 'https://www.appropedia.org/w/api.php?action=query&prop=revisions&titles='+articulo+'&rvslots=*&rvprop=content&format=json'
+        newarticulo = articulo.strip('%20')
+        url = 'https://www.appropedia.org/w/api.php?action=query&prop=revisions&titles='+newarticulo+'&rvslots=*&rvprop=content&format=json'
         accessreq = Request(url, headers = {"User-Agent": "Mozilla/5.0"})
         leer = urlopen(accessreq)
         formatojson = json.loads(leer.read())
