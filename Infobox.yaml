@@ -1,0 +1,29 @@
+- image:
+  - AEFcurrentmarsh.jpg
+  - AEFprevmarsh.jpg
+  - AEFprevfilt1.jpg
+  - AEFprevfilt2.jpg
+  - AEFdigmarsh.jpg
+  - AEFcurrentsystem.jpg
+  - AEFfill.jpg
+- caption:
+  - Filling the baffled marsh with plants and gravel
+  - Filling the baffled marsh with plants and gravel
+  - Filling the baffled marsh with plants and gravel
+  - Filling the baffled marsh with plants and gravel
+  - Filling the baffled marsh with plants and gravel
+  - Filling the baffled marsh with plants and gravel
+  - Filling the baffled marsh with plants and gravel
+- keywords:
+  - greywater
+  - bucket
+  - plywood
+  - wire mesh\
+- uses: Agriculture\
+- instance-of: Bayside Park Farm\
+- date-completed: 2005\
+- date-published: 2005\
+- date-updated:
+  - Spring 2006
+  - October 2013
+- sdg: SDG06 Clean water and sanitation\
