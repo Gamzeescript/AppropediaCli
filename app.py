@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, send_file
 from urllib.request import urlopen, Request
 import requests
 import json
@@ -6,6 +6,7 @@ import csv
 import os.path
 import os
 import re
+import yaml
 
 def create_app(enviroment):
     app = Flask(__name__)
@@ -171,13 +172,35 @@ def home():
         #Variable donde guardara la conversion del NUEVO arreglo data
         datastr = listToString(data)
         #Imprimimos lo que se obtuvo en la variable headerstr	
-        print(headerstr)
+        #print(headerstr)
         #Imprimimos lo que se obtuvo en la variable datastr	
-        print(datastr)
+        #print(datastr)
 
+        dict_file = [{''+header[0]+'':images},
+        {''+header[1]+'':captions},
+        {''+header[2]+'':keyAllArray},
+        {''+header[3]+'':data[3]},
+        {''+header[4]+'':data[4]},
+        {''+header[5]+'':data[5]},
+        {''+header[6]+'':data[6]},
+        {''+header[7]+'':updates},
+        {''+header[8]+'':data[8]}
+        ]        
 
-        csv = headerstr+'\n'+datastr+'\n'
-        return Response(csv, mimetype="text/csv", headers={"Content-disposition":"attachment; filename=resultadobusqueda.csv"})
+        #/--------------------ARCHIVO CSV--------------------/
+        #with open('csv/Infobox.csv', 'w', newline='') as file:
+        #    #Usamos la función se utiliza para crear un objeto de tipo writer y donde pasamo un parámetro adicional que es el delimiter=';' donde queremos usar el ; como delimitador en el archivo Infobox.csv
+        #    writer = csv.writer(file, delimiter=';')
+        #    #La función writer.writerow() se utiliza para escribir en el archivo CSV.
+        #    writer.writerow(header)
+        #    writer.writerow(data)           
+        #p = "csv/Infobox.csv"
+
+        #/--------------------ARCHIVO YAML--------------------/
+        with open(r'yaml/Infobox.yaml', 'w') as file:
+            documents = yaml.dump(dict_file, file)
+        p = "yaml/Infobox.yaml"
+        return send_file(p, as_attachment=True)
     else:
         return render_template("formulario.html")
 
