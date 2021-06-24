@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, Response, send_file
 from urllib.request import urlopen, Request
-import requests
+#import requests
 import json
 import csv
 import os.path
@@ -188,18 +188,18 @@ def home():
         ]        
 
         #/--------------------ARCHIVO CSV--------------------/
-        #with open('csv/Infobox.csv', 'w', newline='') as file:
+        #with open('Infobox.csv', 'w', newline='') as file:
         #    #Usamos la función se utiliza para crear un objeto de tipo writer y donde pasamo un parámetro adicional que es el delimiter=';' donde queremos usar el ; como delimitador en el archivo Infobox.csv
         #    writer = csv.writer(file, delimiter=';')
         #    #La función writer.writerow() se utiliza para escribir en el archivo CSV.
         #    writer.writerow(header)
         #    writer.writerow(data)           
-        #p = "csv/Infobox.csv"
+        #p = "Infobox.csv"
 
         #/--------------------ARCHIVO YAML--------------------/
-        with open(r'yaml/Infobox.yaml', 'w') as file:
+        with open(r'Infobox.yaml', 'w') as file:
             documents = yaml.dump(dict_file, file)
-        p = "yaml/Infobox.yaml"
+        p = "Infobox.yaml"
         return send_file(p, as_attachment=True)
     else:
         return render_template("formulario.html")
